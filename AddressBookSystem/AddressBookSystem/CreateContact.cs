@@ -20,22 +20,22 @@ namespace AddressBookSystem
             person.LastName = Console.ReadLine();
 
             Console.Write("Enter Address: ");
-            person.LastName = Console.ReadLine();
+            person.Address = Console.ReadLine();
 
             Console.Write("Enter City: ");
-            person.LastName = Console.ReadLine();
+            person.City = Console.ReadLine();
 
             Console.Write("Enter State: ");
-            person.LastName = Console.ReadLine();
+            person.State = Console.ReadLine();
 
             Console.Write("Enter Zip: ");
-            person.LastName = Console.ReadLine();
+            person.Zip = Console.ReadLine();
 
             Console.Write("Enter Phone Number: ");
             person.PhoneNumber = Console.ReadLine();
 
             Console.Write("Enter Email: ");
-            person.LastName = Console.ReadLine();
+            person.Email = Console.ReadLine();
             Addcontacts.Add(person);
             Display();
 
