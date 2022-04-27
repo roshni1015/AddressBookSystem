@@ -21,7 +21,7 @@ while (true)
             createContact.edit();
             break;
         default:
-            Console.WriteLine("Please choose correct option");
+            Console.WriteLine("Please Choose From Above Given Options");
             break;
     }
 
