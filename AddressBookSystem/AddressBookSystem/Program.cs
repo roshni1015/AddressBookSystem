@@ -7,7 +7,7 @@ CreateContact createContact = new CreateContact();
 //createContact.Display();
 while (true)
 {
-    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts");
+    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts");
     int option = Convert.ToInt32(Console.ReadLine());
     switch (option)
     {
@@ -20,8 +20,11 @@ while (true)
         case 3:
             createContact.edit();
             break;
+        case 4:
+            createContact.delete();
+            break;
         default:
-            Console.WriteLine("Please choose correct option");
+            Console.WriteLine("Please Choose From Above Given Options");
             break;
     }
 

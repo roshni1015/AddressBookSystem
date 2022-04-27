@@ -99,7 +99,7 @@ namespace AddressBookSystem
                             break;
                         case 6:
                             Console.WriteLine("Please Enter the Zip : ");
-                            string code= Console.ReadLine();
+                            string code = Console.ReadLine();
                             data.Zip = code;
                             break;
                         case 7:
@@ -116,9 +116,37 @@ namespace AddressBookSystem
                             Console.WriteLine("Please Choose From Above Given Options :");
                             break;
                     }
+
                 }
             }
         }
+        public void delete()
+        {
+            Console.WriteLine("Enter the Name to search : ");
+            string Name = Console.ReadLine();
+            try
+            {
+               foreach (var data in Addcontacts)
+               {
+                  if (Addcontacts.Contains(data))
+                  {
+                     if (data.FirstName == Name)
+                     {
+                          Console.WriteLine("Given Name Contact Exists");
+                          Addcontacts.Remove(data);
+
+                          Console.WriteLine("Contact Details Deleted Successfully");
+                          return;
+                     }
+                  }
+               }
+               Console.WriteLine("Given Name Contact does not Exists");
+            }
+            catch (Exception r)
+            {
+                Console.WriteLine(r.Message);
+            }
+                
+        }
     }
 }
-
