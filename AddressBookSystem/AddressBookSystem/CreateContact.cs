@@ -11,7 +11,7 @@ namespace AddressBookSystem
         List<PersonContacts> Addcontacts = new List<PersonContacts>();
         public void personcontacts()
         {
-            PersonContacts person = new PersonContacts();
+            PersonContacts person = new();
 
             Console.Write("Enter First Name: ");
             person.FirstName = Console.ReadLine();
@@ -37,7 +37,7 @@ namespace AddressBookSystem
             Console.Write("Enter Email: ");
             person.Email = Console.ReadLine();
             Addcontacts.Add(person);
-            Display();
+
 
 
         }
@@ -45,6 +45,7 @@ namespace AddressBookSystem
         {
             foreach (var data in Addcontacts)
             {
+
                 Console.WriteLine("Enter First Name: " + data.FirstName);
                 Console.WriteLine("Enter Last Name: " + data.LastName);
                 Console.WriteLine("Enter Address: " + data.Address);
@@ -53,11 +54,13 @@ namespace AddressBookSystem
                 Console.WriteLine("Enter Zip: " + data.Zip);
                 Console.WriteLine("Enter Phone Number: " + data.PhoneNumber);
                 Console.WriteLine("Enter Email: " + data.Email);
+
             }
         }
 
         public void edit()
         {
+
             Console.WriteLine("Enter the Name to search : ");
             string Name = Console.ReadLine();
             foreach (var data in Addcontacts)
@@ -70,55 +73,70 @@ namespace AddressBookSystem
                 {
                     Console.WriteLine("Choose the Option to Edit the Contact Details : \n1)FirstName\n2)lastName\n3)address\n4)City\n5)State\n6)Zip\n7)Phone Number\n8)Email");
                     int option = Convert.ToInt32(Console.ReadLine());
-                    switch (option)
+                    if (option == 1)
                     {
-                        case 1:
-                            Console.WriteLine("Please Enter the First name : ");
-                            string abc = Console.ReadLine();
-                            data.FirstName = abc;
-                            break;
-                        case 2:
-                            Console.WriteLine("Please Enter the Last name : ");
-                            string xyz = Console.ReadLine();
-                            data.LastName = xyz;
-                            break;
-                        case 3:
-                            Console.WriteLine("Please Enter the Address : ");
-                            string pqrs = Console.ReadLine();
-                            data.Address = pqrs;
-                            break;
-                        case 4:
-                            Console.WriteLine("Please Enter the City : ");
-                            string ijk = Console.ReadLine();
-                            data.City = ijk;
-                            break;
-                        case 5:
-                            Console.WriteLine("Please Enter the State : ");
-                            string lmn = Console.ReadLine();
-                            data.State = lmn;
-                            break;
-                        case 6:
-                            Console.WriteLine("Please Enter the Zip : ");
-                            string code = Console.ReadLine();
-                            data.Zip = code;
-                            break;
-                        case 7:
-                            Console.WriteLine("Please Enter the Phone Number : ");
-                            string number = Console.ReadLine();
-                            data.PhoneNumber = number;
-                            break;
-                        case 8:
-                            Console.WriteLine("Please Enter the Email : ");
-                            string abcd1234 = Console.ReadLine();
-                            data.Email = abcd1234;
-                            break;
-                        default:
-                            Console.WriteLine("Please Choose From Above Given Options :");
-                            break;
+                        Console.WriteLine("Please Enter the First name : ");
+                        string abc = Console.ReadLine();
+                        data.FirstName = abc;
+
+                    }
+                    else if (option == 2)
+                    {
+                        Console.WriteLine("Please Enter the Last name : ");
+                        string xyz = Console.ReadLine();
+                        data.LastName = xyz;
+
+                    }
+                    else if (option == 3)
+                    {
+                        Console.WriteLine("Please Enter the Address : ");
+                        string pqrs = Console.ReadLine();
+                        data.Address = pqrs;
+
+                    }
+                    else if (option == 4)
+                    {
+                        Console.WriteLine("Please Enter the City : ");
+                        string ijk = Console.ReadLine();
+                        data.City = ijk;
+
+                    }
+                    else if (option == 5)
+                    {
+                        Console.WriteLine("Please Enter the State : ");
+                        string lmn = Console.ReadLine();
+                        data.State = lmn;
+                    }
+                    else if (option == 6)
+                    {
+                        Console.WriteLine("Please Enter the Zip : ");
+                        string code = Console.ReadLine();
+                        data.Zip = code;
+
+                    }
+                    else if (option == 7)
+                    {
+                        Console.WriteLine("Please Enter the Phone Number : ");
+                        string number = Console.ReadLine();
+                        data.PhoneNumber = number;
+
+                    }
+                    else if (option == 8)
+                    {
+                        Console.WriteLine("Please Enter the Email : ");
+                        string abcd1234 = Console.ReadLine();
+                        data.Email = abcd1234;
+
                     }
 
+                    else
+                    {
+                        Console.WriteLine("Please Choose From Above Given Options :");
+
+                    }
                 }
             }
+
         }
         public void delete()
         {
@@ -126,27 +144,41 @@ namespace AddressBookSystem
             string Name = Console.ReadLine();
             try
             {
-               foreach (var data in Addcontacts)
-               {
-                  if (Addcontacts.Contains(data))
-                  {
-                     if (data.FirstName == Name)
-                     {
-                          Console.WriteLine("Given Name Contact Exists");
-                          Addcontacts.Remove(data);
+                foreach (var data in Addcontacts)
+                {
+                    if (Addcontacts.Contains(data))
+                    {
+                        if (data.FirstName == Name)
+                        {
+                            Console.WriteLine("Given Name Contact Exists");
+                            Addcontacts.Remove(data);
 
-                          Console.WriteLine("Contact Details Deleted Successfully");
-                          return;
-                     }
-                  }
-               }
-               Console.WriteLine("Given Name Contact does not Exists");
+                            Console.WriteLine("Contact Details Deleted Successfully");
+                            return;
+                        }
+                    }
+                }
+                Console.WriteLine("Given Name Contact does not Exists");
             }
             catch (Exception r)
             {
                 Console.WriteLine(r.Message);
             }
-                
         }
+       
+        public void AddMultipleContacts(int n)
+        {
+            
+            while (n > 0)
+            {
+                personcontacts();
+                n--;
+            }
+        }
+       
+
     }
 }
+
+
+
