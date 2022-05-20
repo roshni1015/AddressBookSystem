@@ -9,7 +9,7 @@ while (true)
 {
 
     Console.WriteLine("********************************************************");
-    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts");
+    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName");
     int option = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("********************************************************");
 
@@ -31,6 +31,12 @@ while (true)
             Console.WriteLine("How many no. of contacts");
             int n = Convert.ToInt32(Console.ReadLine());
             createContact.AddMultipleContacts(n);
+            break;
+        case 6:
+            createContact.AddUniqueName();
+            break;
+        case 7:
+            createContact.DisplayUniqueName();
             break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");
