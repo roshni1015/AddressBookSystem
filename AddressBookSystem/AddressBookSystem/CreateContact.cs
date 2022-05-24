@@ -10,7 +10,7 @@ namespace AddressBookSystem
     {
         List<PersonContacts> Addcontacts = new List<PersonContacts>();
         public Dictionary<string, List<PersonContacts>> dict = new Dictionary<string, List<PersonContacts>>();
-        
+
         public void personcontacts()
         {
             PersonContacts person = new();
@@ -27,7 +27,7 @@ namespace AddressBookSystem
                     break;
                 }
             }
-            if(Flag == 0)
+            if (Flag == 0)
             {
                 Console.Write("Enter Last Name: ");
                 person.LastName = Console.ReadLine();
@@ -192,6 +192,8 @@ namespace AddressBookSystem
                 n--;
             }
         }
+
+
         public void AddUniqueName()
         {
             Console.WriteLine("Enter the Firstname to Add Unique Name");
@@ -241,16 +243,40 @@ namespace AddressBookSystem
                         return;
                     }
                 }
-                
 
-              
+
+
 
             }
         }
+        public void SearchByCityState()
+        {
+            Console.WriteLine("Please Enter the name of City or State:");
+            string SearchCityOrState = Console.ReadLine();
+            foreach (var data in Addcontacts)
+            {
+                if (Addcontacts.Exists(data => (data.City == SearchCityOrState) || (data.State == SearchCityOrState)))
+                {
+                    if ((data.City == SearchCityOrState) || (data.State == SearchCityOrState))
+                    {
+                        Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                        Console.WriteLine("Address of person is : " + data.Address);
+                        Console.WriteLine("City : " + data.City);
+                        Console.WriteLine("State :" + data.State);
+                        Console.WriteLine("Zip :" + data.Zip);
+                        Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                        Console.WriteLine("Email of person : " + data.Email);
+
+                    }
+                }
+            }
+
+
+        }
 
     }
-
 }
+
    
 
 
