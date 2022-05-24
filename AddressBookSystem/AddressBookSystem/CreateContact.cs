@@ -266,6 +266,8 @@ namespace AddressBookSystem
                         Console.WriteLine("Zip :" + data.Zip);
                         Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
                         Console.WriteLine("Email of person : " + data.Email);
+                        Console.WriteLine();
+
 
                     }
                 }
