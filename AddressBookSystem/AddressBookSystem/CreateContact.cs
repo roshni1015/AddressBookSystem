@@ -14,31 +14,46 @@ namespace AddressBookSystem
         public void personcontacts()
         {
             PersonContacts person = new();
-
-            Console.Write("Enter First Name: ");
+            int Flag = 0;
+            Console.WriteLine("Enter the First name :");
             person.FirstName = Console.ReadLine();
+            string FirstNameToBeAdded = person.FirstName;
+            foreach (var data in Addcontacts)
+            {
+                if (Addcontacts.Exists(data => data.FirstName == FirstNameToBeAdded))
+                {
+                    Flag++;
+                    Console.WriteLine("This FirstName already Exist! Can't take the Duplicate Record.");
+                    break;
+                }
+            }
+            if(Flag == 0)
+            {
+                Console.Write("Enter Last Name: ");
+                person.LastName = Console.ReadLine();
 
-            Console.Write("Enter Last Name: ");
-            person.LastName = Console.ReadLine();
+                Console.Write("Enter Address: ");
+                person.Address = Console.ReadLine();
 
-            Console.Write("Enter Address: ");
-            person.Address = Console.ReadLine();
+                Console.Write("Enter City: ");
+                person.City = Console.ReadLine();
 
-            Console.Write("Enter City: ");
-            person.City = Console.ReadLine();
+                Console.Write("Enter State: ");
+                person.State = Console.ReadLine();
 
-            Console.Write("Enter State: ");
-            person.State = Console.ReadLine();
+                Console.Write("Enter Zip: ");
+                person.Zip = Console.ReadLine();
 
-            Console.Write("Enter Zip: ");
-            person.Zip = Console.ReadLine();
+                Console.Write("Enter Phone Number: ");
+                person.PhoneNumber = Console.ReadLine();
 
-            Console.Write("Enter Phone Number: ");
-            person.PhoneNumber = Console.ReadLine();
+                Console.Write("Enter Email: ");
+                person.Email = Console.ReadLine();
+                Addcontacts.Add(person);
+                Console.WriteLine("********************************************************");
 
-            Console.Write("Enter Email: ");
-            person.Email = Console.ReadLine();
-            Addcontacts.Add(person);
+
+            }
 
 
 
@@ -67,7 +82,7 @@ namespace AddressBookSystem
             string Name = Console.ReadLine();
             foreach (var data in Addcontacts)
             {
-                if (data.FirstName == null)
+                if (data.FirstName != Name)
                 {
                     Console.WriteLine("Contact for {0} count not be found.", Name);
                 }
