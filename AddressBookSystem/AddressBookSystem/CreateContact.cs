@@ -50,7 +50,7 @@ namespace AddressBookSystem
                 Console.Write("Enter Email: ");
                 person.Email = Console.ReadLine();
                 Addcontacts.Add(person);
-                Console.WriteLine("********************************************************");
+                Console.WriteLine("***************************************************************************");
 
 
             }
@@ -266,12 +266,31 @@ namespace AddressBookSystem
                         Console.WriteLine("Zip :" + data.Zip);
                         Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
                         Console.WriteLine("Email of person : " + data.Email);
+                        Console.WriteLine();
+
 
                     }
                 }
             }
 
 
+        }
+        public void CountContactsbyCityState()
+        {
+            Console.WriteLine("Please Enter the Name of City or State:");
+            string SearchCityOrState = Console.ReadLine();
+
+            int count = 0;
+            foreach (var data in Addcontacts)
+            {
+                string actualcity = data.City;
+                string actualState = data.State;
+                if (Addcontacts.Exists(data => (data.City == SearchCityOrState) || (data.State == SearchCityOrState)))
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine("There are {0} Persons Contacts in {1}:", count, SearchCityOrState);
         }
 
     }
