@@ -9,7 +9,7 @@ while (true)
 {
 
     Console.WriteLine("********************************************************");
-    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person in a City or State");
+    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State");
     int option = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("********************************************************");
 
