@@ -290,7 +290,7 @@ namespace AddressBookSystem
                     count++;
                 }
             }
-            Console.WriteLine("There are {0} Persons Contacts in {1}:", count, SearchCityOrState);
+            Console.WriteLine("There are {0} Persons Contacts in {1}", count, SearchCityOrState);
         }
 
     }
