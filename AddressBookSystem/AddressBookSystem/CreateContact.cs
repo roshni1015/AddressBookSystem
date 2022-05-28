@@ -389,22 +389,82 @@ namespace AddressBookSystem
             {
                 if (Addcontacts.Contains(data))
                 {
-                    Console.WriteLine("Name of the Person : " + data.FirstName + " " + data.LastName);
-                    Console.WriteLine("Email ID : " + data.Email);
-                    Console.WriteLine("Mobile Number : " + data.PhoneNumber);
-                    Console.WriteLine("Address : " + data.Address);
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
                     Console.WriteLine("City : " + data.City);
-                    Console.WriteLine("State : " + data.State);
-                    Console.WriteLine("Zip : " + data.Zip);
-                    Console.WriteLine("\n");
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.Zip);
+                    Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                    Console.WriteLine("Email of person : " + data.Email);
+                    Console.WriteLine();
+                }
+
+            }
+        }
+        public void SortingContactsByCity()
+        {
+
+            foreach (var data in Addcontacts.OrderBy(s => s.City).ToList())
+            {
+                if (Addcontacts.Contains(data))
+                {
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.Zip);
+                    Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                    Console.WriteLine("Email of person : " + data.Email);
+                    Console.WriteLine();
+                }
+
+            }
+        }
+
+        public void SortingContactsByState()
+        {
+
+            foreach (var data in Addcontacts.OrderBy(s => s.State).ToList())
+            {
+                if (Addcontacts.Contains(data))
+                {
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.Zip);
+                    Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                    Console.WriteLine("Email of person : " + data.Email);
+                    Console.WriteLine();
+                }
+
+            }
+        }
+
+        public void SortingContactsByZip()
+        {
+
+            foreach (var data in Addcontacts.OrderBy(s => s.Zip).ToList())
+            {
+                if (Addcontacts.Contains(data))
+                {
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.Zip);
+                    Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                    Console.WriteLine("Email of person : " + data.Email);
+                    Console.WriteLine();
                 }
 
             }
         }
     }
-
-
 }
+
+
+
       
         
 

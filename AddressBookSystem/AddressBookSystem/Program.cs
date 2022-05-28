@@ -7,7 +7,7 @@ while (true)
 {
 
     Console.WriteLine("********************************************************");
-    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name");
+    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name \n13)Sorting Persons Contacts By City \n14)Sorting Persons Contacts By State \n15)Sorting Persons Contacts By Zip");                                  
     int option = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("********************************************************");
 
@@ -52,6 +52,18 @@ while (true)
             break;
         case 12:
             createContact.SortingContactsByName();
+            break;
+        case 13:
+            Console.WriteLine("Sorting Persons Contacts by City");
+            createContact.SortingContactsByCity();
+            break;
+        case 14:
+            Console.WriteLine("Sorting Persons Contacts by State");
+            createContact.SortingContactsByState();
+            break;
+        case 15:
+            Console.WriteLine("Sorting Persons Contacts by Zip");
+            createContact.SortingContactsByZip();
             break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");
