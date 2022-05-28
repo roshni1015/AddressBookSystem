@@ -50,6 +50,9 @@ while (true)
             createContact.ContactByStateInDictionary();
             createContact.DictionayState_Display();
             break;
+        case 12:
+            createContact.SortingContactsByName();
+            break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");
             break;
