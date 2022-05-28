@@ -460,6 +460,33 @@ namespace AddressBookSystem
 
             }
         }
+        string path = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\usingFileIO.txt";
+        public void WriteToTextFile()
+        {
+            //string ABC = @"C:\Users\santo\OneDrive\Desktop\CSharpCodes\AddressBook\AddressBook\TextFile1.txt";
+            using (TextWriter Tw = File.AppendText(path))
+            {
+                foreach (PersonContacts item in Addcontacts)
+                {
+                    Tw.WriteLine("First Name:" + item.FirstName.ToString());
+                    Tw.WriteLine("Last Name:" + item.LastName.ToString());
+                    Tw.WriteLine("Address:" + item.Address.ToString());
+                    Tw.WriteLine("City:" + item.City.ToString());
+                    Tw.WriteLine("State:" + item.State.ToString());
+                    Tw.WriteLine("Zip:" + item.Zip.ToString());
+                    Tw.WriteLine("PhoneNumber:" + item.PhoneNumber.ToString());
+                    Tw.WriteLine("EmailId:" + item.Email.ToString());
+
+                }
+            }
+        }
+        public void ReadFileIO()
+        {
+            string lines;
+
+            lines = File.ReadAllText(path);
+            Console.WriteLine("Reading All the Text\n" + lines);
+        }
     }
 }
 

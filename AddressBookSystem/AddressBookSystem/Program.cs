@@ -65,6 +65,12 @@ while (true)
             Console.WriteLine("Sorting Persons Contacts by Zip");
             createContact.SortingContactsByZip();
             break;
+        case 16:
+            createContact.WriteToTextFile();
+            break;
+        case 17:
+            createContact.ReadFileIO();
+            break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");
             break;
