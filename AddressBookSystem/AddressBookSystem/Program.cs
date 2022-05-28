@@ -3,13 +3,11 @@ using AddressBookSystem;
 
 Console.WriteLine("Welcome to AddressBook System!");
 CreateContact createContact = new CreateContact();
-//createContact.personcontacts();
-//createContact.Display();
 while (true)
 {
 
     Console.WriteLine("********************************************************");
-    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State ");
+    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name");
     int option = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("********************************************************");
 
@@ -43,6 +41,14 @@ while (true)
             break;
         case 9:
             createContact.CountContactsbyCityState();
+            break;
+        case 10:
+            createContact.ContactByCityInDictionary();
+            createContact.DictionayCity_Display();
+            break;
+        case 11:
+            createContact.ContactByStateInDictionary();
+            createContact.DictionayState_Display();
             break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");

@@ -10,6 +10,9 @@ namespace AddressBookSystem
     {
         List<PersonContacts> Addcontacts = new List<PersonContacts>();
         public Dictionary<string, List<PersonContacts>> dict = new Dictionary<string, List<PersonContacts>>();
+        public static Dictionary<string, List<PersonContacts>> dictcity = new Dictionary<string, List<PersonContacts>>();
+        public static Dictionary<string, List<PersonContacts>> dictstate = new Dictionary<string, List<PersonContacts>>();
+
 
         public void personcontacts()
         {
@@ -243,10 +246,6 @@ namespace AddressBookSystem
                         return;
                     }
                 }
-
-
-
-
             }
         }
         public void SearchByCityState()
@@ -255,6 +254,7 @@ namespace AddressBookSystem
             string SearchCityOrState = Console.ReadLine();
             foreach (var data in Addcontacts)
             {
+
                 if (Addcontacts.Exists(data => (data.City == SearchCityOrState) || (data.State == SearchCityOrState)))
                 {
                     if ((data.City == SearchCityOrState) || (data.State == SearchCityOrState))
@@ -292,9 +292,103 @@ namespace AddressBookSystem
             }
             Console.WriteLine("There are {0} Persons Contacts in {1}:", count, SearchCityOrState);
         }
+        public void ContactByCityInDictionary()
+        {
 
+            try
+            {
+                var data = Addcontacts.GroupBy(x => x.City);
+                foreach (var cities in data)
+                {
+                    List<PersonContacts> cityList = new List<PersonContacts>();
+                    foreach (var city in cities)
+                    {
+                        cityList.Add(city);
+                    }
+                    dictcity.Add(cities.Key, cityList);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void DictionayCity_Display()
+        {
+            if (dictcity.Count == 0)
+                Console.WriteLine("No AddressBook(s) to Show.");
+            if (dictcity.Count >= 1)
+            {
+                foreach (KeyValuePair<string, List<PersonContacts>> addressBooks in dictcity)
+                {
+                    Console.WriteLine("Contacts From City: " + addressBooks.Key);
+                    foreach (PersonContacts contact in addressBooks.Value)
+                    {
+                        Console.WriteLine("Name of person : " + contact.FirstName + " " + contact.LastName);
+                        Console.WriteLine("Address of person is : " + contact.Address);
+                        Console.WriteLine("City : " + contact.City);
+                        Console.WriteLine("State :" + contact.State);
+                        Console.WriteLine("Zip :" + contact.Zip);
+                        Console.WriteLine("Phone Number of person: " + contact.PhoneNumber);
+                        Console.WriteLine("Email of person : " + contact.Email);
+                        Console.WriteLine();
+
+                    }
+                }
+            }
+        }
+        public void ContactByStateInDictionary()
+        {
+
+            try
+            {
+                var data = Addcontacts.GroupBy(x => x.State);
+                foreach (var states in data)
+                {
+                    List<PersonContacts> stateList = new List<PersonContacts>();
+                    foreach (var state in states)
+                    {
+                        stateList.Add(state);
+                    }
+                    dictstate.Add(states.Key, stateList);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void DictionayState_Display()
+        {
+            if (dictstate.Count == 0)
+                Console.WriteLine("No AddressBook(s) to Show.");
+            if (dictstate.Count >= 1)
+            {
+                foreach (KeyValuePair<string, List<PersonContacts>> addressBooks in dictstate)
+                {
+                    Console.WriteLine("Contacts From State: " + addressBooks.Key);
+                    foreach (PersonContacts contact in addressBooks.Value)
+                    {
+                        Console.WriteLine("Name of person : " + contact.FirstName + " " + contact.LastName);
+                        Console.WriteLine("Address of person is : " + contact.Address);
+                        Console.WriteLine("City : " + contact.City);
+                        Console.WriteLine("State :" + contact.State);
+                        Console.WriteLine("Zip :" + contact.Zip);
+                        Console.WriteLine("Phone Number of person: " + contact.PhoneNumber);
+                        Console.WriteLine("Email of person : " + contact.Email);
+                        Console.WriteLine();
+                    }
+                }
+            }
+        }
     }
+
+
 }
+      
+        
 
    
 
