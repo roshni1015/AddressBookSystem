@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CsvHelper;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -485,8 +488,42 @@ namespace AddressBookSystem
             string lines;
 
             lines = File.ReadAllText(path);
-            Console.WriteLine("Reading All the Text\n" + lines);
+            Console.WriteLine("Reading All the Text" + lines);
         }
+        public void WriteJson()
+        {
+            string json = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingJsonFile.json";
+            foreach (PersonContacts item in Addcontacts)
+            {
+                string json1 = JsonConvert.SerializeObject(Addcontacts);
+                File.WriteAllText(json, json1);
+
+            }
+            Console.WriteLine("copied all data");
+
+        }
+        public void ReadJsonFile()
+        {
+            string json = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingJsonFile.json";
+            string jsonData = File.ReadAllText(json);
+            var jsonResult = JsonConvert.DeserializeObject<List<PersonContacts>>(jsonData).ToList();
+            Console.WriteLine("Reading from Json file");
+            foreach (var data in jsonResult)
+            {
+
+                Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                Console.WriteLine("Address of person is : " + data.Address);
+                Console.WriteLine("City : " + data.City);
+                Console.WriteLine("State :" + data.State);
+                Console.WriteLine("Zip :" + data.Zip);
+                Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                Console.WriteLine("Email of person : " + data.Email);
+                Console.WriteLine();
+
+            }
+        }
+
+
     }
 }
 

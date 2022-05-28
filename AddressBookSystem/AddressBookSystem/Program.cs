@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AddressBookSystem;
+using System.Text;
 
 Console.WriteLine("Welcome to AddressBook System!");
 CreateContact createContact = new CreateContact();
@@ -7,7 +8,7 @@ while (true)
 {
 
     Console.WriteLine("********************************************************");
-    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name \n13)Sorting Persons Contacts By City \n14)Sorting Persons Contacts By State \n15)Sorting Persons Contacts By Zip");                                  
+    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name \n13)Sorting Persons Contacts By City \n14)Sorting Persons Contacts By State \n15)Sorting Persons Contacts By Zip \n16)Writing AddressBook using File IO \n17)Reading AddressBook Using File IO \n18)Writing AddressBook Using File CSV \n19)Reading AddressBook Using File CSV \n20)Writing AddressBook Using File JSON \n21)Reading AddressBook Using File JSON");                                  
     int option = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("********************************************************");
 
@@ -70,6 +71,12 @@ while (true)
             break;
         case 17:
             createContact.ReadFileIO();
+            break;
+        case 20:
+            createContact.WriteJson();
+            break;
+        case 21:
+            createContact.ReadJsonFile();
             break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");
