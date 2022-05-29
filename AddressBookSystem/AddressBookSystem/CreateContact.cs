@@ -488,7 +488,7 @@ namespace AddressBookSystem
             string lines;
 
             lines = File.ReadAllText(path);
-            Console.WriteLine("Reading All the Text" + lines);
+            Console.WriteLine("Reading All the Text\n" + lines);
         }
         public void WriteJson()
         {
