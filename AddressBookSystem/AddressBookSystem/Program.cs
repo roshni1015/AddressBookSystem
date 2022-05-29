@@ -72,6 +72,12 @@ while (true)
         case 17:
             createContact.ReadFileIO();
             break;
+        case 18:
+            createContact.WriteFileCSV();
+            break;
+        case 19:
+            createContact.ReadFileCSV();
+            break;
         case 20:
             createContact.WriteJson();
             break;

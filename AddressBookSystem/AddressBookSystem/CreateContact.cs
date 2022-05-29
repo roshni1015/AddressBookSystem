@@ -488,8 +488,42 @@ namespace AddressBookSystem
             string lines;
 
             lines = File.ReadAllText(path);
+            Console.WriteLine("Reading All the Text\n" + lines);
+        }
+        public void WriteFileCSV()
+        {
+            string path = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingCSVFile.csv";
+            StreamWriter sw = new StreamWriter(path);
+            CsvWriter cw = new CsvWriter(sw, CultureInfo.InvariantCulture);
+            foreach (PersonContacts item in Addcontacts)
+            {
+                sw.WriteLine("First Name:" + item.FirstName.ToString());
+                sw.WriteLine("Last Name:" + item.LastName.ToString());
+                sw.WriteLine("Address:" + item.Address.ToString());
+                sw.WriteLine("City:" + item.City.ToString());
+                sw.WriteLine("State:" + item.State.ToString());
+                sw.WriteLine("Zip:" + item.Zip.ToString());
+                sw.WriteLine("PhoneNumber:" + item.PhoneNumber.ToString());
+                sw.WriteLine("EmailId:" + item.Email.ToString());
+
+            }
+            sw.Flush();
+            sw.Close();
+
+
+        }
+        public void ReadFileCSV()
+        {
+            string lines;
+            string path = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingCSVFile.csv";
+            StreamReader sw = new StreamReader(path);
+            CsvReader cw = new CsvReader(sw, CultureInfo.InvariantCulture);
+            lines = File.ReadAllText(path);
             Console.WriteLine("Reading All the Text" + lines);
         }
+
+
+
         public void WriteJson()
         {
             string json = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingJsonFile.json";
