@@ -1,8 +1,2 @@
-First Name:Roshni
-Last Name:Adatrao
-Address:Hadapsar
-City:Pune
-State:Maharastra
-Zip:411013
-PhoneNumber:+91 1234567890
-EmailId:roshniadatrao@gmail.com
+FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email
+Roshni,Adatrao,Hadapsar,Pune,Maharastra,411013,+91 1234567890,roshniadatrao@gmail.com

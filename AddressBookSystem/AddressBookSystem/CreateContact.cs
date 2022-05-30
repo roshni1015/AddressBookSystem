@@ -466,7 +466,6 @@ namespace AddressBookSystem
         string path = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\usingFileIO.txt";
         public void WriteToTextFile()
         {
-            //string ABC = @"C:\Users\santo\OneDrive\Desktop\CSharpCodes\AddressBook\AddressBook\TextFile1.txt";
             using (TextWriter Tw = File.AppendText(path))
             {
                 foreach (PersonContacts item in Addcontacts)
@@ -494,36 +493,36 @@ namespace AddressBookSystem
         {
             string path = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingCSVFile.csv";
             StreamWriter sw = new StreamWriter(path);
-            CsvWriter cw = new CsvWriter(sw, CultureInfo.InvariantCulture);
-            foreach (PersonContacts item in Addcontacts)
+            using (var csvExport = new CsvWriter(sw, CultureInfo.InvariantCulture))
             {
-                sw.WriteLine("First Name:" + item.FirstName.ToString());
-                sw.WriteLine("Last Name:" + item.LastName.ToString());
-                sw.WriteLine("Address:" + item.Address.ToString());
-                sw.WriteLine("City:" + item.City.ToString());
-                sw.WriteLine("State:" + item.State.ToString());
-                sw.WriteLine("Zip:" + item.Zip.ToString());
-                sw.WriteLine("PhoneNumber:" + item.PhoneNumber.ToString());
-                sw.WriteLine("EmailId:" + item.Email.ToString());
+                {
+                    csvExport.WriteRecords(Addcontacts);
+                }
+                Console.WriteLine("Persons Contacts saved in Csv file");
 
             }
-            sw.Flush();
-            sw.Close();
-
-
+            
         }
         public void ReadFileCSV()
         {
-            string lines;
             string path = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingCSVFile.csv";
-            StreamReader sw = new StreamReader(path);
-            CsvReader cw = new CsvReader(sw, CultureInfo.InvariantCulture);
-            lines = File.ReadAllText(path);
-            Console.WriteLine("Reading All the Text" + lines);
+            StreamReader sr = new StreamReader(path);
+            CsvReader cr = new(sr, CultureInfo.InvariantCulture);
+            List<PersonContacts> readResult = cr.GetRecords<PersonContacts>().ToList();
+            Console.WriteLine("Reading from CSV file");
+            foreach(var item in readResult)
+            {
+                Console.WriteLine(item.FirstName.ToString());
+                Console.WriteLine(item.LastName.ToString());
+                Console.WriteLine(item.Address.ToString());
+                Console.WriteLine(item.City.ToString());
+                Console.WriteLine(item.State.ToString());
+                Console.WriteLine(item.Zip.ToString());
+                Console.WriteLine(item.PhoneNumber.ToString());
+                Console.WriteLine(item.Email.ToString());
+            }
+            sr.Close();
         }
-
-
-
         public void WriteJson()
         {
             string json = @"C:\Users\Admin\source\c#\AddressBookSystem\AddressBookSystem\AddressBookSystem\UsingJsonFile.json";
