@@ -4,11 +4,14 @@ using System.Text;
 
 Console.WriteLine("Welcome to AddressBook System!");
 CreateContact createContact = new CreateContact();
+AddressBookRepo repo = new AddressBookRepo();
 while (true)
 {
 
     Console.WriteLine("********************************************************");
-    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name \n13)Sorting Persons Contacts By City \n14)Sorting Persons Contacts By State \n15)Sorting Persons Contacts By Zip \n16)Writing AddressBook using File IO \n17)Reading AddressBook Using File IO \n18)Writing AddressBook Using File CSV \n19)Reading AddressBook Using File CSV \n20)Writing AddressBook Using File JSON \n21)Reading AddressBook Using File JSON");                                  
+    Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name \n13)Sorting Persons Contacts By City \n14)Sorting Persons Contacts By State \n15)Sorting Persons Contacts By Zip \n16)Writing AddressBook using File IO \n17)Reading AddressBook Using File IO \n18)Writing AddressBook Using File CSV \n19)Reading AddressBook Using File CSV \n20)Writing AddressBook Using File JSON \n21)Reading AddressBook Using File JSON" +
+        "\n22)Display of AddressBook\n23)Display of PersonDetail1\n24)Display of Address_Book1\n25)Display of PersonTypes1" +
+        "\n26)Display of PersonsDetail_Type1\n27)Display of Employee_Department1");                                  
     int option = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("********************************************************");
 
@@ -83,6 +86,30 @@ while (true)
             break;
         case 21:
             createContact.ReadJsonFile();
+            break;
+        case 22:
+            Console.WriteLine("Display of AddressBook");
+            repo.DisplayAddressBook();
+            break;
+        case 23:
+            Console.WriteLine("Display of PersonDetail1");
+            repo.DisplayPersonDetail1();
+            break;
+        case 24:
+            Console.WriteLine("Display of Address_Book1");
+            repo.DisplayAddress_Book1();
+            break;
+        case 25:
+            Console.WriteLine("Display of PersonTypes1");
+            repo.DisplayPersonTypes1();
+            break;
+        case 26:
+            Console.WriteLine("Display of PersonsDetail_Type1");
+            repo.DisplayPersonsDetail_Type1();
+            break;
+        case 27:
+            Console.WriteLine("Display of Employee_Department1");
+            repo.DisplayEmployee_Department1();
             break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");
