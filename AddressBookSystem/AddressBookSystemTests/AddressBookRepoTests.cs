@@ -54,5 +54,13 @@ namespace AddressBookSystem.Tests
             Console.WriteLine("Display of Employee_Department1");
             repo.DisplayEmployee_Department1();
         }
+
+        [TestMethod()]
+        public void UpdateDetailsTest()
+        {
+            string expected = "Updated Email_ID";
+            string address = repo.UpdateDetails();
+            Assert.AreEqual(expected, address);
+        }
     }
 }

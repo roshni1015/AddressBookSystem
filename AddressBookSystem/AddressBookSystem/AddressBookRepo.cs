@@ -232,6 +232,24 @@ namespace AddressBookSystem
                 Console.WriteLine(e.Message);
             }
         }
+        public string UpdateDetails()
+        {
+            Connection = new SqlConnection(@"Data Source=LAPTOP-RLUTTHG1; Initial Catalog =AddressBookForADO; Integrated Security = True;");
+            Connection.Open();
+            SqlCommand command = new SqlCommand("update PersonDetail1 set Email_ID='Updated Email_ID' where FirstName='Roshni'", Connection);
+
+            int effectedRow = command.ExecuteNonQuery();
+            if (effectedRow == 1)
+            {
+                string query = @"Select Email_ID from PersonDetail1 where FirstName='Roshni';";
+                SqlCommand cmd = new SqlCommand(query, Connection);
+                object res = cmd.ExecuteScalar();
+                Connection.Close();
+                addressmodel.Address = (string)res;
+            }
+            Connection.Close();
+            return (addressmodel.Address);
+        }
 
     }
 }
