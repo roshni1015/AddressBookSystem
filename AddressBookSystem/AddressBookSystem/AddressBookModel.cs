@@ -17,6 +17,8 @@ namespace AddressBookSystem
         public int Zip { get; set; }
         public string PhoneNumber { get; set; }
         public string Email_ID { get; set; }
+        public DateTime DateAdded { get; set; }
+
 
     }
     public class Address_Book1
@@ -37,6 +39,8 @@ namespace AddressBookSystem
         public long PhoneNumber { get; set; }
         
         public string Email_ID { get; set; }
+        public DateTime DateAdded { get; set; }
+
     }
 
     public class PersonTypes1

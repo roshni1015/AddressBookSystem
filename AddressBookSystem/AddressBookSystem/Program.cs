@@ -11,7 +11,7 @@ while (true)
     Console.WriteLine("********************************************************");
     Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts \n5)Adding Multiple Contacts \n6)Adding Unique Name \n7)DisplayUniqueName \n8)Searching Person Contacts By a City or State \n9)Count Persons Contacts By City Or State \n10)View Person contacts By City \n11)View Person contacts By State \n12)Sorting alphabetically by Person’s name \n13)Sorting Persons Contacts By City \n14)Sorting Persons Contacts By State \n15)Sorting Persons Contacts By Zip \n16)Writing AddressBook using File IO \n17)Reading AddressBook Using File IO \n18)Writing AddressBook Using File CSV \n19)Reading AddressBook Using File CSV \n20)Writing AddressBook Using File JSON \n21)Reading AddressBook Using File JSON" +
         "\n22)Display of AddressBook\n23)Display of PersonDetail1\n24)Display of Address_Book1\n25)Display of PersonTypes1" +
-        "\n26)Display of PersonsDetail_Type1\n27)Display of Employee_Department1\n28)Update Employee Details");                                  
+        "\n26)Display of PersonsDetail_Type1\n27)Display of Employee_Department1\n28)Update Employee Details\n29)Add Column DateAdded\n30)Contacts in date range");                                  
     int option = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("********************************************************");
 
@@ -115,6 +115,12 @@ while (true)
             Console.WriteLine("Display of PersonDetail1");
             string address = repo.UpdateDetails();
             Console.WriteLine(address);
+            break;
+        case 29:
+            repo.AddEmployeeDetails();
+            break;
+        case 30:
+            repo.GetDetailsInPeroid();
             break;
         default:
             Console.WriteLine("Please Choose From Above Given Options");
