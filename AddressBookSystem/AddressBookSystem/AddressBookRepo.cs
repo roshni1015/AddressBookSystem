@@ -332,6 +332,31 @@ namespace AddressBookSystem
             }
             Connection.Close();
         }
+        public int CountOfEmployeeDetailsByCity()
+        {
+            int count;
+            Connection = new SqlConnection(@"Data Source=LAPTOP-RLUTTHG1; Initial Catalog =AddressBookForADO; Integrated Security = True;");
+            Connection.Open();
+            string query = @"Select count(*) from PersonDetail1 where City='Old Alwal';";
+            SqlCommand command = new SqlCommand(query, Connection);
+            object res = command.ExecuteScalar();
+            Connection.Close();
+            int Count = (int)res;
+            return Count;
+        }
+
+        public int CountOfEmployeeDetailsByState()
+        {
+            int count;
+            Connection = new SqlConnection(@"Data Source=LAPTOP-RLUTTHG1; Initial Catalog =AddressBookForADO; Integrated Security = True;");
+            Connection.Open();
+            string query = @"Select count(*) from PersonDetail1 where State='Telangana';";
+            SqlCommand command = new SqlCommand(query, Connection);
+            object res = command.ExecuteScalar();
+            Connection.Close();
+            int Count = (int)res;
+            return Count;
+        }
 
     }
 }
